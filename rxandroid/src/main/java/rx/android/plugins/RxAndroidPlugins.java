@@ -13,8 +13,8 @@
  */
 package rx.android.plugins;
 
-import rx.annotations.Beta;
 import java.util.concurrent.atomic.AtomicReference;
+import rx.annotations.Experimental;
 
 /**
  * Registry for plugin implementations that allows global override and handles the retrieval of
@@ -31,8 +31,7 @@ public final class RxAndroidPlugins {
         return INSTANCE;
     }
 
-    private final AtomicReference<RxAndroidSchedulersHook> schedulersHook =
-            new AtomicReference<RxAndroidSchedulersHook>();
+    private final AtomicReference<RxAndroidSchedulersHook> schedulersHook = new AtomicReference<>();
 
     RxAndroidPlugins() {
     }
@@ -42,7 +41,7 @@ public final class RxAndroidPlugins {
      * <p>
      * Note: This should only be used for testing purposes.
      */
-    @Beta
+    @Experimental
     public void reset() {
         schedulersHook.set(null);
     }
